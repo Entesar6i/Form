@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+
+        .preview-section {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Contact Us</h1>
+    <br>
+
+    <!-- This is the user form to contact the website -->
+    <form id="contact-form" method="POST" action="">
+
+        <div class="form-grouping">
+            <!-- Section for the user name -->
+            <label for="user">Name:</label><br>
+            <input id="user" type="text" name="name" required>
+            <span id="name-error" class="error"></span>
+        </div><br>
+
+        <div class="form-grouping">
+            <!-- Section for the Email -->
+            <label for="email">Email:</label><br>
+            <input id="email" type="email" name="email" required>
+            <span id="email-error" class="error"></span>
+        </div><br>
+
+        <div class="form-grouping">
+            <label for="phone">Phone Number:</label><br>
+            <input id="phone" type="tel" pattern="\d{10}" name="phone" title="Phone number must be 10 digits" required>
+            <span id="phone-error" class="error"></span>
+        </div><br>
+
+        <div class="form-grouping">
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
+            <span id="message-error" class="error"></span>
+        </div><br>
+
+        <div class="form-grouping">
+            <label>Preferred Contact Method:</label><br>
+            <input type="radio" id="emailContact" name="contact_method" value="Email" required>
+            <label for="emailContact">Email</label>
+            <input type="radio" id="phoneContact" name="contact_method" value="Phone">
+            <label for="phoneContact">Phone</label>
+            <input type="radio" id="bothContact" name="contact_method" value="Both">
+            <label for="bothContact">Both</label><br>
+        </div><br>
+
+        <div class="form-grouping">
+            <label for="inquiryType">Inquiry Type:</label><br>
+            <select id="inquiryType" name="inquiry_type">
+                <option value="General Inquiry">General Inquiry</option>
+                <option value="Support Request">Support Request</option>
+                <option value="Feedback">Feedback</option>
+            </select>
+        </div><br>
+
+        <div class="contact-form">
+            <button type="button" onclick="previewData()">Preview</button>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+    <!-- Preview Section -->
+    <div id="previewSection" class="preview-section" style="display:none;">
+        <h3>Preview of Submitted Data</h3>
+        <p><strong>Name:</strong> <span id="previewName"></span></p>
+        <p><strong>Email:</strong> <span id="previewEmail"></span></p>
+        <p><strong>Phone:</strong> <span id="previewPhone"></span></p>
+        <p><strong>Message:</strong> <span id="previewMessage"></span></p>
+        <p><strong>Preferred Contact Method:</strong> <span id="previewContactMethod"></span></p>
+        <p><strong>Inquiry Type:</strong> <span id="previewInquiryType"></span></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
